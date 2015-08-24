@@ -1,4 +1,7 @@
-package world.we.deserve.jpabasicsample;
+/**
+ * 
+ */
+package world.we.deserve.jpaautomaticrepositories;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -7,20 +10,27 @@ import org.springframework.stereotype.Component;
 
 import world.we.deserve.dao.JpaConceptDAOImpl;
 import world.we.deserve.dto.jpa.Concept;
+import world.we.deserve.jpabasicsample.App;
+import world.we.deserve.jpabasicsample.JPAComponentScan;
 
+/**
+ * @author Miguel Ángel Dev (miguelangelprogramacion@gmail.com)
+ *
+ */
 @Component
-public class App 
-{
+public class AppJPAAutomaticRepositories {
+
 	@Autowired
 	private JpaConceptDAOImpl injectionStrategy;
-	
-    public static void main( String[] args )
-    {
-    	ApplicationContext context = new AnnotationConfigApplicationContext(JPAComponentScan.class);
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		ApplicationContext context = new AnnotationConfigApplicationContext(JPAAutomaticReposComponentScan.class);
     	App app = context.getBean(App.class);
-		app.insertSyntheticConcept();		
-    }
-
+		app.insertSyntheticConcept();
+	}
+	
 	/**
 	 * 
 	 */
@@ -35,4 +45,5 @@ public class App
 		concept = injectionStrategy.getConceptById(new Integer(1));
 		System.out.println(concept.getAbstract_());
 	}
+
 }
