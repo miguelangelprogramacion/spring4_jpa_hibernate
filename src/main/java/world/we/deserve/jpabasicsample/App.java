@@ -1,4 +1,4 @@
-package world.we.deserve;
+package world.we.deserve.jpabasicsample;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;

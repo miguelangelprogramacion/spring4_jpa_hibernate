@@ -1,7 +1,7 @@
 /**
  * 
  */
-package world.we.deserve;
+package world.we.deserve.jpabasicsample;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;

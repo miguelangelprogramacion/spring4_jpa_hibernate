@@ -2,6 +2,7 @@ package world.we.deserve.dto.jpa;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.util.List;
 
 
 /**
@@ -23,6 +24,10 @@ public class Concept implements Serializable {
 	private byte[] good;
 
 	private String resume;
+
+	//bi-directional many-to-many association to Nihilist
+	@ManyToMany(mappedBy="concepts")
+	private List<Nihilist> nihilists;
 
 	public Concept() {
 	}
@@ -57,6 +62,14 @@ public class Concept implements Serializable {
 
 	public void setResume(String resume) {
 		this.resume = resume;
+	}
+
+	public List<Nihilist> getNihilists() {
+		return this.nihilists;
+	}
+
+	public void setNihilists(List<Nihilist> nihilists) {
+		this.nihilists = nihilists;
 	}
 
 }
