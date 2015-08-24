@@ -9,9 +9,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.stereotype.Component;
 
 import world.we.deserve.dao.JpaConceptDAOImpl;
+import world.we.deserve.dao.repository.ConceptRepository;
 import world.we.deserve.dto.jpa.Concept;
-import world.we.deserve.jpabasicsample.App;
-import world.we.deserve.jpabasicsample.JPAComponentScan;
 
 /**
  * @author Miguel Ángel Dev (miguelangelprogramacion@gmail.com)
@@ -19,15 +18,16 @@ import world.we.deserve.jpabasicsample.JPAComponentScan;
  */
 @Component
 public class AppJPAAutomaticRepositories {
-
+	
 	@Autowired
-	private JpaConceptDAOImpl injectionStrategy;
+	private ConceptRepository conceptRepository;
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		@SuppressWarnings("resource")
 		ApplicationContext context = new AnnotationConfigApplicationContext(JPAAutomaticReposComponentScan.class);
-    	App app = context.getBean(App.class);
+		AppJPAAutomaticRepositories app = context.getBean(AppJPAAutomaticRepositories.class);
 		app.insertSyntheticConcept();
 	}
 	
@@ -39,11 +39,9 @@ public class AppJPAAutomaticRepositories {
 		concept.setAbstract_("abstract");
 		concept.setResume("resume");
 //		concept.setGood(new byte[] {(byte)0,});
-		
-		injectionStrategy.addConcept(concept);		
-		
-		concept = injectionStrategy.getConceptById(new Integer(1));
-		System.out.println(concept.getAbstract_());
+			
+		Concept out = conceptRepository.save(concept);
+		System.out.println(out.getConcept_Id());
 	}
 
 }

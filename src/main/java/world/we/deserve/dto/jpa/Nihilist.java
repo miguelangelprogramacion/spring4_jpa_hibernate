@@ -17,6 +17,7 @@ public class Nihilist implements Serializable {
 
 	@Id
 	@Column(name="nihilist_id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int nihilistId;
 
 	private int rage;
