@@ -30,7 +30,7 @@ CREATE TABLE `concept` (
   `resume` varchar(45) DEFAULT NULL,
   `good` binary(1) DEFAULT NULL,
   PRIMARY KEY (`concept_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,8 +39,58 @@ CREATE TABLE `concept` (
 
 LOCK TABLES `concept` WRITE;
 /*!40000 ALTER TABLE `concept` DISABLE KEYS */;
-INSERT INTO `concept` VALUES (1,'qweqwe','qweqwe',NULL),(2,'abstract','resume',NULL);
+INSERT INTO `concept` VALUES (18,'abstract','resume',NULL),(19,'abstract','resume',NULL),(20,'abstract','resume',NULL),(21,'abstract','resume',NULL),(22,'abstract','resume',NULL);
 /*!40000 ALTER TABLE `concept` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `nihilist`
+--
+
+DROP TABLE IF EXISTS `nihilist`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `nihilist` (
+  `nihilist_id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(45) DEFAULT NULL,
+  `rage` int(11) DEFAULT NULL,
+  PRIMARY KEY (`nihilist_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nihilist`
+--
+
+LOCK TABLES `nihilist` WRITE;
+/*!40000 ALTER TABLE `nihilist` DISABLE KEYS */;
+/*!40000 ALTER TABLE `nihilist` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `nihilist_concept`
+--
+
+DROP TABLE IF EXISTS `nihilist_concept`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `nihilist_concept` (
+  `nihilist_id` int(11) NOT NULL,
+  `concept_id` int(11) NOT NULL,
+  PRIMARY KEY (`nihilist_id`,`concept_id`),
+  KEY `fk_nihilist_concept_concept_id_idx` (`concept_id`),
+  CONSTRAINT `fk_nihilist_concept_concept_id` FOREIGN KEY (`concept_id`) REFERENCES `concept` (`concept_Id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_nihilist_concept_nihilist_id` FOREIGN KEY (`nihilist_id`) REFERENCES `nihilist` (`nihilist_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nihilist_concept`
+--
+
+LOCK TABLES `nihilist_concept` WRITE;
+/*!40000 ALTER TABLE `nihilist_concept` DISABLE KEYS */;
+/*!40000 ALTER TABLE `nihilist_concept` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +102,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-08-06  0:31:31
+-- Dump completed on 2015-08-24 23:43:33
