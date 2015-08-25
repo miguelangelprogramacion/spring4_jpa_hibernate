@@ -17,7 +17,7 @@ public class Concept implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int concept_Id;
+	private Integer concept_Id;
 
 	@Column(name="abstract")
 	private String abstract_;
@@ -33,11 +33,11 @@ public class Concept implements Serializable {
 	public Concept() {
 	}
 
-	public int getConcept_Id() {
+	public Integer getConcept_Id() {
 		return this.concept_Id;
 	}
 
-	public void setConcept_Id(int concept_Id) {
+	public void setConcept_Id(Integer concept_Id) {
 		this.concept_Id = concept_Id;
 	}
 

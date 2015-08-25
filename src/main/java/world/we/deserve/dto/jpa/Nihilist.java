@@ -18,9 +18,9 @@ public class Nihilist implements Serializable {
 	@Id
 	@Column(name="nihilist_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int nihilistId;
+	private Integer nihilistId;
 
-	private int rage;
+	private Integer rage;
 
 	private String username;
 
@@ -40,19 +40,19 @@ public class Nihilist implements Serializable {
 	public Nihilist() {
 	}
 
-	public int getNihilistId() {
+	public Integer getNihilistId() {
 		return this.nihilistId;
 	}
 
-	public void setNihilistId(int nihilistId) {
+	public void setNihilistId(Integer nihilistId) {
 		this.nihilistId = nihilistId;
 	}
 
-	public int getRage() {
+	public Integer getRage() {
 		return this.rage;
 	}
 
-	public void setRage(int rage) {
+	public void setRage(Integer rage) {
 		this.rage = rage;
 	}
 

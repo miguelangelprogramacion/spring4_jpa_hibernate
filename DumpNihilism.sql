@@ -30,7 +30,7 @@ CREATE TABLE `concept` (
   `resume` varchar(45) DEFAULT NULL,
   `good` binary(1) DEFAULT NULL,
   PRIMARY KEY (`concept_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `concept` (
 
 LOCK TABLES `concept` WRITE;
 /*!40000 ALTER TABLE `concept` DISABLE KEYS */;
-INSERT INTO `concept` VALUES (18,'abstract','resume',NULL),(19,'abstract','resume',NULL),(20,'abstract','resume',NULL),(21,'abstract','resume',NULL),(22,'abstract','resume',NULL);
+INSERT INTO `concept` VALUES (23,'rage','Violent, explosive anger.',NULL),(24,'fear','A very unpleasant or disturbing feeling cause',NULL),(25,'sadness','Showing, expressing, or feeling sorrow or unh',NULL),(26,'violence','Behavior or treatment in which physical force',NULL);
 /*!40000 ALTER TABLE `concept` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -55,7 +55,7 @@ CREATE TABLE `nihilist` (
   `username` varchar(45) DEFAULT NULL,
   `rage` int(11) DEFAULT NULL,
   PRIMARY KEY (`nihilist_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,6 +64,7 @@ CREATE TABLE `nihilist` (
 
 LOCK TABLES `nihilist` WRITE;
 /*!40000 ALTER TABLE `nihilist` DISABLE KEYS */;
+INSERT INTO `nihilist` VALUES (1,'rust',75),(2,'cohle',NULL);
 /*!40000 ALTER TABLE `nihilist` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,6 +91,7 @@ CREATE TABLE `nihilist_concept` (
 
 LOCK TABLES `nihilist_concept` WRITE;
 /*!40000 ALTER TABLE `nihilist_concept` DISABLE KEYS */;
+INSERT INTO `nihilist_concept` VALUES (2,23),(1,24),(1,25);
 /*!40000 ALTER TABLE `nihilist_concept` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -102,4 +104,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-08-24 23:43:33
+-- Dump completed on 2015-08-25 11:00:03
